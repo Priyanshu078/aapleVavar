@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "931511475516",
+    "project_id": "aaplevavar-d9441",
+    "storage_bucket": "aaplevavar-d9441.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:931511475516:android:d6d9f494ef3796a95b9239",
+        "android_client_info": {
+          "package_name": "com.example.hello"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "931511475516-cliodrt6eudd7pf09s3u54hhccl4pj0t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hello",
+            "certificate_hash": "67d7cb3c49f8a03dbc3be2bd33bb330a974ed774"
+          }
+        },
+        {
+          "client_id": "931511475516-qan07mqg38qu4lmg7t7jpilt3ad7329r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAedkpSGNyFG3S7gdPbXZygefbN0QP5UBA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "931511475516-qan07mqg38qu4lmg7t7jpilt3ad7329r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
