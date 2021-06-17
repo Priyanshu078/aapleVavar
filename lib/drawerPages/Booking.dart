@@ -13,52 +13,54 @@ class Booking extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.orange,
-      body: Column(
-        children: <Widget>[
-          SizedBox(
-            height: 30,
-          ),
-          Text(
-            "Looking to Visit Aaple Vavar",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-                color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Text(
-            "Book a Slot by filling this simple form",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-                color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          MaterialButton(
-            color: Colors.green,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-            height: 60,
-            onPressed: () {
-              launch(url);
-            },
-            child: Text(
-              "Form",
-              style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+      body: Center(
+        child: Column(
+          children: <Widget>[
+            SizedBox(
+              height: 30,
             ),
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Text(
-            "Thanks for visiting",
-            style: TextStyle(
-                color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-        ],
+            Text(
+              "Looking to Visit Aaple Vavar",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              "Book a Slot by filling this simple form",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            MaterialButton(
+              color: Colors.green,
+              shape:
+                  RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+              height: 60,
+              onPressed: () {
+                launch(url);
+              },
+              child: Text(
+                "Form",
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              ),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              "Thanks for visiting",
+              style: TextStyle(
+                  color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
       ),
     );
   }

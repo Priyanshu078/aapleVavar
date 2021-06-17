@@ -41,7 +41,6 @@ class _MyAppFulState extends State<MyAppFul> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
         title: Row(
           children: [
             Image.asset('res/logo.png', scale: 15),
@@ -110,7 +109,7 @@ class _MyAppFulState extends State<MyAppFul> {
                             style: TextStyle(color: Colors.white),
                           )
                           :Text(
-                            "Hello visitor"!,
+                            "Hello visitor!",
                             style: TextStyle(color: Colors.white),
                           ),
                         ],
@@ -131,7 +130,7 @@ class _MyAppFulState extends State<MyAppFul> {
                     onTap: () {
                       Navigator.pop(context);
                       setState(() {
-                        _pageController.jumpToPage(0);
+                        _pageController.jumpToPage(2);
                       });
                     },
                   ),
@@ -160,7 +159,7 @@ class _MyAppFulState extends State<MyAppFul> {
                     title: Text('Contact Us'),
                     onTap: () {
                       Navigator.pop(context);
-                      _pageController.jumpToPage(2);
+                      _pageController.jumpToPage(3);
                     },
                   ),
                   ListTile(
@@ -173,7 +172,7 @@ class _MyAppFulState extends State<MyAppFul> {
                     title: Text('Menu'),
                     onTap: () {
                       Navigator.pop(context);
-                      _pageController.jumpToPage(3);
+                      _pageController.jumpToPage(0);
                     },
                   ),
                   ListTile(
@@ -227,10 +226,10 @@ class _MyAppFulState extends State<MyAppFul> {
         controller: _pageController,
         physics: NeverScrollableScrollPhysics(),
         children: <Widget>[
-          Homescreen(),
-          ViewMaps(),
-          ContactUs(),
           MenuList(),
+          ViewMaps(),
+          Homescreen(),
+          ContactUs(),
           AboutRestro(),
           Booking(),
         ],
@@ -238,14 +237,17 @@ class _MyAppFulState extends State<MyAppFul> {
       ),
       bottomNavigationBar: CurvedNavigationBar(
         height: MediaQuery.of(context).size.height * 0.06,
+        index: 0,
         backgroundColor: Colors.orange,
         items: <Widget>[
-          Icon(Icons.verified_user, size: 30),
+          Icon(Icons.menu, size: 30),
+          Icon(Icons.map, size: 30),
           Icon(Icons.home_filled, size: 30),
-          Icon(Icons.login_outlined, size: 30),
+          Icon(Icons.phone, size: 30),
+          Icon(Icons.add_business_outlined, size: 30),
         ],
         onTap: (index) {
-          //Handle button tap
+          _pageController.jumpToPage(index);//Handle button tap
         },
       ),
     );
