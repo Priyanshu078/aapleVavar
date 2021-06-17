@@ -104,8 +104,13 @@ class _MyAppFulState extends State<MyAppFul> {
                                     "res/admin.png",
                                   ),
                                 ),
-                          Text(
+                          _user.displayName != null
+                          ?Text(
                             "Hello " + _user.displayName!,
+                            style: TextStyle(color: Colors.white),
+                          )
+                          :Text(
+                            "Hello visitor"!,
                             style: TextStyle(color: Colors.white),
                           ),
                         ],
