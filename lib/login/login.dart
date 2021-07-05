@@ -1,3 +1,4 @@
+import 'package:aaple_vaavar/Admin.dart';
 import 'package:aaple_vaavar/auth/authentication.dart';
 import 'package:aaple_vaavar/drawerPages/homescreen.dart';
 import 'package:flutter/material.dart';
@@ -142,9 +143,7 @@ class _LoginPageState extends State<LoginPage> {
                                 if (user != null) {
                                   Navigator.of(context).pushReplacement(
                                     MaterialPageRoute(
-                                      builder: (context) => MyAppFul(
-                                        user: user,
-                                      ),
+                                      builder: (context) => Admin(),
                                     ),
                                   );
                                 }
@@ -167,13 +166,6 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 40),
-                  // child: Container(
-                  //   padding: EdgeInsets.only(top: 3, left: 3),
-                  //   decoration: BoxDecoration(
-                  //       borderRadius: BorderRadius.circular(100),
-                  //       border: Border.all(
-                  //         color: Colors.black
-                  //       )),
                   child: MaterialButton(
                     minWidth: double.infinity,
                     height: 60,
@@ -184,8 +176,7 @@ class _LoginPageState extends State<LoginPage> {
                           User? user = await signInUserByEmailPassword();
                           if (user != null) {
                             Navigator.of(context).pushReplacement(
-                              MaterialPageRoute(
-                                  builder: (context) => MyAppFul(user: user)),
+                              MaterialPageRoute(builder: (context) => Admin()),
                             );
                           }
                         }
