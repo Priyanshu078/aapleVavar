@@ -1,5 +1,7 @@
 import 'dart:ui';
+import 'package:aaple_vaavar/Drawer.dart';
 import 'package:aaple_vaavar/auth/authentication.dart';
+import 'package:aaple_vaavar/login/PhonenumberAuth.dart';
 import 'package:flutter/material.dart';
 import 'package:aaple_vaavar/login/login.dart';
 import 'package:aaple_vaavar/login/signup.dart';
@@ -51,15 +53,17 @@ class HomePage extends StatelessWidget {
                     onPressed: () {
                       Authentication.initializeFirebase(context: context);
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => LoginPage()));
+                          MaterialPageRoute(builder: (context) => MyAppFul()));
                     },
                     // defining the shape
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(50)),
                     child: Text(
-                      "Login",
-                      style:
-                          TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+                      "User",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 18,
+                          color: Colors.white),
                     ),
                   ),
                   // creating the signup button
@@ -73,13 +77,13 @@ class HomePage extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => SignupPage()));
+                              builder: (context) => PhoneNumberAuth()));
                     },
                     color: Colors.orange,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(50)),
                     child: Text(
-                      "Sign up",
+                      "Admin",
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w600,
