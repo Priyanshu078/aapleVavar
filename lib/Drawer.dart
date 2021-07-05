@@ -14,14 +14,6 @@ import 'auth/authentication.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class MyAppFul extends StatefulWidget {
-  // const MyAppFul({Key? key, required User user})
-  //     : _user = user, super(key: key);
-
-  // final User _user;
-  final User _user;
-
-  MyAppFul({required User user}) : _user = user;
-
   @override
   _MyAppFulState createState() => _MyAppFulState();
 }
@@ -33,7 +25,7 @@ class _MyAppFulState extends State<MyAppFul> {
 
   @override
   void initState() {
-    _user = widget._user;
+    // _user = widget._user;
     super.initState();
   }
 
@@ -61,17 +53,7 @@ class _MyAppFulState extends State<MyAppFul> {
         ),
         iconTheme: IconThemeData(color: Colors.orange),
         toolbarHeight: MediaQuery.of(context).size.height * 0.1,
-
         backgroundColor: Colors.white,
-        //Color(0xffcf91ff),
-        // actions: [
-        //   IconButton(
-        //       icon: Icon(
-        //         Icons.supervised_user_circle,
-        //         size: 28,
-        //       ),
-        //       onPressed: () {})
-        // ]
       ),
       drawer: Drawer(
         child: Column(
@@ -88,27 +70,12 @@ class _MyAppFulState extends State<MyAppFul> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          _user.photoURL != null
-                              ? ClipOval(
-                                  child: Material(
-                                    color: Colors.blueAccent.withOpacity(0.3),
-                                    child: Image.network(
-                                      _user.photoURL!,
-                                      fit: BoxFit.fitHeight,
-                                    ),
-                                  ),
-                                )
-                              : Flexible(
-                                  child: Image.asset(
-                                    "res/admin.png",
-                                  ),
-                                ),
-                          _user.displayName != null
-                          ?Text(
-                            "Hello " + _user.displayName!,
-                            style: TextStyle(color: Colors.white),
-                          )
-                          :Text(
+                          Flexible(
+                            child: Image.asset(
+                              "res/admin.png",
+                            ),
+                          ),
+                          Text(
                             "Hello visitor!",
                             style: TextStyle(color: Colors.white),
                           ),
@@ -130,7 +97,7 @@ class _MyAppFulState extends State<MyAppFul> {
                     onTap: () {
                       Navigator.pop(context);
                       setState(() {
-                        _pageController.jumpToPage(2);
+                        _pageController.jumpToPage(0);
                       });
                     },
                   ),
@@ -172,7 +139,7 @@ class _MyAppFulState extends State<MyAppFul> {
                     title: Text('Menu'),
                     onTap: () {
                       Navigator.pop(context);
-                      _pageController.jumpToPage(0);
+                      _pageController.jumpToPage(2);
                     },
                   ),
                   ListTile(
@@ -203,22 +170,22 @@ class _MyAppFulState extends State<MyAppFul> {
                 ],
               ),
             ),
-            ListTile(
-              leading: Icon(Icons.logout),
-              title: Text('Log out'),
-              onTap: () async {
-                setState(() {
-                  _isSigningOut = true;
-                });
-                await Authentication.signOut(context: context);
-                setState(() {
-                  _isSigningOut = false;
-                });
-                Navigator.pop(context);
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => HomePage()));
-              },
-            ),
+            // ListTile(
+            //   leading: Icon(Icons.logout),
+            //   title: Text('Log out'),
+            //   onTap: () async {
+            //     setState(() {
+            //       _isSigningOut = true;
+            //     });
+            //     await Authentication.signOut(context: context);
+            //     setState(() {
+            //       _isSigningOut = false;
+            //     });
+            //     Navigator.pop(context);
+            //     Navigator.push(context,
+            //         MaterialPageRoute(builder: (context) => HomePage()));
+            //   },
+            // ),
           ],
         ),
       ),
@@ -226,9 +193,9 @@ class _MyAppFulState extends State<MyAppFul> {
         controller: _pageController,
         physics: NeverScrollableScrollPhysics(),
         children: <Widget>[
-          MenuList(),
-          ViewMaps(),
           Homescreen(),
+          ViewMaps(),
+          MenuList(),
           ContactUs(),
           AboutRestro(),
           Booking(),
@@ -240,14 +207,14 @@ class _MyAppFulState extends State<MyAppFul> {
         index: 0,
         backgroundColor: Colors.orange,
         items: <Widget>[
-          Icon(Icons.menu, size: 30),
-          Icon(Icons.map, size: 30),
           Icon(Icons.home_filled, size: 30),
+          Icon(Icons.map, size: 30),
+          Icon(Icons.menu, size: 30),
           Icon(Icons.phone, size: 30),
           Icon(Icons.add_business_outlined, size: 30),
         ],
         onTap: (index) {
-          _pageController.jumpToPage(index);//Handle button tap
+          _pageController.jumpToPage(index); //Handle button tap
         },
       ),
     );
