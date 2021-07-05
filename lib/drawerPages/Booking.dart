@@ -1,65 +1,122 @@
-import 'dart:ui';
-
+import 'package:aaple_vaavar/auth/authentication.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-class Booking extends StatelessWidget {
+class Booking extends StatefulWidget {
   const Booking({Key? key}) : super(key: key);
 
-  final url =
-      "https://docs.google.com/forms/d/e/1FAIpQLSfc639sJK1N2A1xbYWCLY68Dkbz6_B8vFPQU7aRfrUhz3jwVw/viewform?usp=sf_link";
+  @override
+  _BookingState createState() => _BookingState();
+}
 
+class _BookingState extends State<Booking> {
+  TextEditingController _controllerName = new TextEditingController();
+  TextEditingController _controllerPhone = new TextEditingController();
+  TextEditingController _controllerPeople = new TextEditingController();
+  TextEditingController _controllerAdults = new TextEditingController();
+  TextEditingController _controllerChildren = new TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.orange,
-      body: Center(
-        child: Column(
-          children: <Widget>[
-            SizedBox(
-              height: 30,
-            ),
-            Text(
-              "Looking to Visit Aaple Vavar",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Text(
-              "Book a Slot by filling this simple form",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            MaterialButton(
-              color: Colors.green,
-              shape:
-                  RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-              height: 60,
-              onPressed: () {
-                launch(url);
-              },
-              child: Text(
-                "Form",
-                style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 20),
+          height: MediaQuery.of(context).size.height - 150,
+          width: double.infinity,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text(
+                "Booking Form",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25,
+                    color: Colors.black),
               ),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Text(
-              "Thanks for visiting",
-              style: TextStyle(
-                  color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-          ],
+              TextField(
+                controller: _controllerName,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: "Name",
+                  labelText: "Name",
+                ),
+              ),
+              TextField(
+                controller: _controllerPhone,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: "Phone Number",
+                  labelText: "Phone No.",
+                ),
+              ),
+              TextField(
+                controller: _controllerPeople,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: "Total Number of People",
+                  labelText: "Total People",
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Flexible(
+                    flex: 1,
+                    child: Padding(
+                      padding: EdgeInsets.only(right: 5),
+                      child: TextField(
+                        controller: _controllerAdults,
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: "Number of Adults",
+                          labelText: "Adults",
+                        ),
+                      ),
+                    ),
+                  ),
+                  Flexible(
+                    flex: 1,
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 5),
+                      child: TextField(
+                        controller: _controllerChildren,
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: "Number of Children",
+                          labelText: "Children",
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              MaterialButton(
+                height: 60,
+                minWidth: double.infinity,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30)),
+                color: Colors.green,
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      Authentication.customSnackBar(
+                          content:
+                              "Form Submitted,\nWe will be contacting you shortly"));
+                },
+                child: Text(
+                  "Submit",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
