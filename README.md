@@ -1,6 +1,6 @@
 # Aaple Vavar
 
-The applicaion developed using flutter to showcase all the services and activities of place AapleVavar.
+The applicaion is developed using flutter to showcase all the services and activities of place AapleVavar.
 
 #Snaps of app
 Welcome Page
